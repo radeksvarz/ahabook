@@ -59,5 +59,6 @@ target/
 # Other
 /.env
 *.sqlite3
-
+.idea/
+.venv/
 
