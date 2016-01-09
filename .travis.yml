@@ -1,11 +1,15 @@
 language: python
-sudo: false
 python:
-  - "3.3"
+    - "3.3"
+addons: 
+    postgresql: "9.2"
+services:
+    - postgresql
 install:
-  - pip install -r requirements.txt
+    - pip install -r requirements.txt
 before_script:
     # - flake8 .
+    - psql -c 'create database travis_ci_test;' -U postgres
     - python manage.py migrate
 script:
     - python manage.py test
