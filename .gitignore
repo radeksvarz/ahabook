@@ -58,5 +58,6 @@ target/
 
 # Other
 /.env
+.sqlite3
 
 
