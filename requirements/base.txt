@@ -2,7 +2,10 @@
 # PIP common requirements
 # =======================================================================================================================
 
-Django>=1.9.1,<2.0
+# Python 3.3 is not supported by Django 1.9+
+# Python 3.3 is running on Openshift :(
+
+Django>=1.8.1,<1.9
 
 # ========================================================
 # Powerful interactive shells
