@@ -3,6 +3,7 @@ python:
     - "3.3"
 cache: pip
 env:
+  global:
     - DEBUG=False
     - SECRET_KEY=m@lhr)&qq-hy57h%o!5!ujk)2d)okjdm7%kl9eo(a-+t0tv&y!
     - DATABASE_URL=psql://postgres:@127.0.0.1:5432/ahabook
