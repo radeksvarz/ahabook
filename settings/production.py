@@ -3,6 +3,7 @@
 #    DJANGO_SETTINGS_MODULE={{ project_name }}.settings.production
 
 from .base import *             # NOQA
+from os.path import join
 import logging.config
 
 # For security and performance reasons, DEBUG is turned off
