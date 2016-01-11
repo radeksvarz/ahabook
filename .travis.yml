@@ -5,13 +5,13 @@ cache: pip
 env:
   global:
   - DEBUG=False
-  - secure: "Ldw7N0iWbPAF2JIfFzkGhnVTUBNKOT3aEwMIwE/10mjchAcCdNaVekjxVzwe8Dl3qbBhE+XImGXWTXjBXpopQMBprj9ELSqiI
+  - secure: Ldw7N0iWbPAF2JIfFzkGhnVTUBNKOT3aEwMIwE/10mjchAcCdNaVekjxVzwe8Dl3qbBhE+XImGXWTXjBXpopQMBprj9ELSqiI
         hzEsXtHtnioyPyMvsrgLdcEH1n1UrhGthiNXST54sDcLrufAU4VtjQiEZKKh/FGZEHlTbyc719e24nbMsl62IjcWiHYsENzwsBMjiMuH0M6+
         dWNVvaRcJf3AFKy9o6JbUvuxevWx7AoDMTvnm4FVZ5iGDOSuAtdzPaxODCyGWush88y0ybMd1gwdfSOSENg0E1cWZPKKYMx3fwhyUgV1iKB8
         4GCSJiGsjk9HkldH/X9vjP0cDZ/0xhRPly9+Ak/YfOKTdor7NF6fXAFqeH/1yNXUIHy8e8Sq5vx7Hi0M91liawZQNU2Mkr4hXnUj9v/BZuQ+
         q5/V1XvM1WRwcQfguKHEWsutdlgIb0zgJkN183dkIIFEz/IfBkYXnJIwzYqWVdBsZE7UXs9xRw/k1SWlbn3/dwcr79jYDsqtAxClx8jPUJ9A
         Pcf9sBnQ/mT6hlt9IadxQXlpm6/H/Ts//r0fT9oGE8GbBfnNFMELmezyEbvc2ik3I4ZGJS+6fAK+Bnz2OZdqgQuwcmfgD71nywT/jUjY3ZkH
-        /du83RbQzulz/rzUDgGk/fDzL3O982wPkOxniH4awV3UxY="
+        /du83RbQzulz/rzUDgGk/fDzL3O982wPkOxniH4awV3UxY=
   - DATABASE_URL=psql://postgres:@127.0.0.1:5432/ahabook
   - ALLOWED_HOSTS=127.0.0.1,localhost,0.0.0.0
   - secure: prqAzWnY+Ue5cIlqisVAkUkBZN8d+L4JyXEz8qBZSCuMMKBUgm2cj6zX+pOHeVrbuOcaIxikdolT8Vfy6x8B941g09UVpulEB
