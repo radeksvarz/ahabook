@@ -5,7 +5,13 @@ cache: pip
 env:
   global:
   - DEBUG=False
-  - secure: AB+PK3oqmbWtERt9RahyFzIwG0nQMAOzF/fNQPDTHee/Bt6sod0hBp6L8zCqt7PodPKKlsuxsz1+kAQ/4racgLAa1LhOh5J+/KkQA66AMMNdKhUHa8ll21q1GKzTx2fp6R+2ngSmVWAY22sYuZYLfeRMeaYO7OOK3VM5rt+CcWQTSItrC1S3n9rJDX6vdFRqqklI0ODvt9CzkahnFc0a0a7C5xMMvv9MCaydbh+rGombq3wErylDjMItNhEi9gIIIoCPkuOUUW8AVN2FoDQS0dWb1WeEHdEtZX0ataXmB7fEepq9l1gU1bXPe4/sQ5sHv8mj8xF37aK2P8Yh3RIJmyVm6NJ2tonRwP6jXuCYDy9MtNYdvAR2YpIRiQ/l/oEH3AbZR24C1GMadVzpYkFBhvz85fWjcckAENsi8zWt+8+FRa/mHHbhEoumqtVYcebl6tjVBB3bQ6agLztwMpj6AiDUkmOEV3Ti7W/+HQF49Np2/NRgjh0tfk1QiPBFKmKJGX/ayO/IDMRIPAHzmdrLYH+b+cnYAGUuMOvOmx/maGPfDagzkGyBA7N3Oblszn3+4vqkMZ73RAgyTG4elKZGL600OJghimaK00gUsIJV0hzd+4xQqdbPYGFhEp7Ii27WfATX92dlpUNKOAsGiqxUjtqBVHHYNWxRTcDcmVZcE3k=
+  - secure: "Ldw7N0iWbPAF2JIfFzkGhnVTUBNKOT3aEwMIwE/10mjchAcCdNaVekjxVzwe8Dl3qbBhE+XImGXWTXjBXpopQMBprj9ELSqiI
+        hzEsXtHtnioyPyMvsrgLdcEH1n1UrhGthiNXST54sDcLrufAU4VtjQiEZKKh/FGZEHlTbyc719e24nbMsl62IjcWiHYsENzwsBMjiMuH0M6+
+        dWNVvaRcJf3AFKy9o6JbUvuxevWx7AoDMTvnm4FVZ5iGDOSuAtdzPaxODCyGWush88y0ybMd1gwdfSOSENg0E1cWZPKKYMx3fwhyUgV1iKB8
+        4GCSJiGsjk9HkldH/X9vjP0cDZ/0xhRPly9+Ak/YfOKTdor7NF6fXAFqeH/1yNXUIHy8e8Sq5vx7Hi0M91liawZQNU2Mkr4hXnUj9v/BZuQ+
+        q5/V1XvM1WRwcQfguKHEWsutdlgIb0zgJkN183dkIIFEz/IfBkYXnJIwzYqWVdBsZE7UXs9xRw/k1SWlbn3/dwcr79jYDsqtAxClx8jPUJ9A
+        Pcf9sBnQ/mT6hlt9IadxQXlpm6/H/Ts//r0fT9oGE8GbBfnNFMELmezyEbvc2ik3I4ZGJS+6fAK+Bnz2OZdqgQuwcmfgD71nywT/jUjY3ZkH
+        /du83RbQzulz/rzUDgGk/fDzL3O982wPkOxniH4awV3UxY="
   - DATABASE_URL=psql://postgres:@127.0.0.1:5432/ahabook
   - ALLOWED_HOSTS=127.0.0.1,localhost,0.0.0.0
   - secure: prqAzWnY+Ue5cIlqisVAkUkBZN8d+L4JyXEz8qBZSCuMMKBUgm2cj6zX+pOHeVrbuOcaIxikdolT8Vfy6x8B941g09UVpulEB
