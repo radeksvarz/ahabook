@@ -2,7 +2,7 @@
 """Local dev settings and globals.
 """
 
-from settings.base import *
+from .base import *
 
 
 ########## DEBUG

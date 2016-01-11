@@ -11,20 +11,31 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print("Ahabook running in %s" %(BASE_DIR,))
+
+# env settings in env variable or env file
+env = environ.Env(DEBUG=(bool, False), ) # set default values and casting
+environ.Env.read_env(os.path.join(BASE_DIR, ".env")) # reading .env file
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
+# For security and performance reasons, DEBUG to be turned off inproduction
+DEBUG = env('DEBUG') # False if not in os.environ
+# TEMPLATE_DEBUG = False # - deprecated
+print("Debug mode:%s" % DEBUG)
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$ddpo=7cqic9#+=zi_hm$-*(5mmvu=ih$#3d78j!ey7&e$^114'
+SECRET_KEY = env("SECRET_KEY")
 
-
-ALLOWED_HOSTS = []
-
+# Must mention ALLOWED_HOSTS in production!
+ALLOWED_HOSTS = env("ALLOWED_HOSTS")
+print("Allowed hosts:%s" % ALLOWED_HOSTS)
 
 # Application definition
 
@@ -75,12 +86,12 @@ WSGI_APPLICATION = 'wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': env.db(), # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
 }
 
+debug_env_db = env.db()
+debug_env_db["PASSWORD"] = "******"
+print("DB:%s" % debug_env_db)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators

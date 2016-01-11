@@ -6,12 +6,6 @@ from .base import *             # NOQA
 from os.path import join
 import logging.config
 
-# For security and performance reasons, DEBUG is turned off
-DEBUG = False
-# TEMPLATE_DEBUG = False
-
-# Must mention ALLOWED_HOSTS in production!
-ALLOWED_HOSTS = ["ahabook.cz", "ahabook.org", "ahabook-svarz.rhcloud.com"]
 
 # Cache the templates in memory for speed-up
 loaders = [
@@ -28,9 +22,8 @@ TEMPLATES[0]['OPTIONS'].update({"loaders": loaders})
 STATIC_ROOT = join(BASE_DIR, '..', 'site', 'static')
 
 
-#TODO put to env vars!
 RAVEN_CONFIG = {
-    'dsn': 'https://97197e8d6d1b4309b83cf58ef457f76c:41f86676277e45609edb288507ce2995@app.getsentry.com/63207',
+    'dsn': env("RAVEN_DSN"),
     # If you are using git, you can also automatically configure the
     # release based on the git info.
     'release': release,

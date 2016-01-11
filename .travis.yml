@@ -2,7 +2,20 @@ language: python
 python:
     - "3.3"
 cache: pip
-addons: 
+env:
+    - DEBUG=False
+    - SECRET_KEY=m@lhr)&qq-hy57h%o!5!ujk)2d)okjdm7%kl9eo(a-+t0tv&y!
+    - DATABASE_URL=psql://postgres:@127.0.0.1:5432/ahabook
+    - ALLOWED_HOSTS=127.0.0.1,localhost,0.0.0.0
+    - secure: "prqAzWnY+Ue5cIlqisVAkUkBZN8d+L4JyXEz8qBZSCuMMKBUgm2cj6zX+pOHeVrbuOcaIxikdolT8Vfy6x8B941g09UVpulEB
+    E192IjtYLXpOJhRezwWX2E+R1yg/95KTXWHUrZDxfs47bjqnHsAjY/2fZJ3UoSy/nWhgeYu7aLmxM0S1bCUe+ee/JLZaY5tlwct9cqXu+Lsl
+    L4oNXVDVP4dJxa5mV1SKSfbsGmTv0bFP8P1ZZVJ0Z+BM+k+VSdJ5Y7ThieoPAAzKhL6QmtbkOcxC2KeZXpjeHHbCXOvLc46iezEV60YlkSYx
+    nWrG5/5vEtvhP2cXFV7FiS9cIDArWKAKTN4ZdgFEHVP+rjQs0ST8wBEIK/e9QT0tgGu8szQSDzt6FCFyrDMdFlAddOwok5XYYZZoAokC/QiQ
+    WsqO3Bh86BCbWdsV0Xnsn6Sb9iw8G/f3EGF1w5+6FkPxa6NYfm1KRBa3jVmggbM6CfMS02nyOwQI2TKGxLcM1l73IB6tXQffk8NAvJn/d6nN
+    OAQVQvUG3KIvCfW2jwILYLy/g7xqUUD+5e3oBcz7l+aceAg1ON/CZYbzqWiilcLagHOOjK1m2eJXT39Uyu/CW7YdYaUK6gW+DKieipe9aro3
+    Nx1AePSm6HZpC/8msYgGVwn0tk/mH2FONc20J2f6Y5dwAY="
+
+addons:
     postgresql: "9.2"
 services:
     - postgresql
@@ -10,7 +23,7 @@ install:
     - pip install -r requirements/test.txt
 before_script:
     # - flake8 .
-    - psql -c 'create database travis_ci_test;' -U postgres
+    - psql -c 'create database ahabook;' -U postgres
     - python manage.py migrate --settings=settings.production
 script:
     - python manage.py test --settings=settings.production
