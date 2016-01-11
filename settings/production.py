@@ -27,6 +27,16 @@ TEMPLATES[0]['OPTIONS'].update({"loaders": loaders})
 # Define STATIC_ROOT for the collectstatic command
 STATIC_ROOT = join(BASE_DIR, '..', 'site', 'static')
 
+
+#TODO put to env vars!
+RAVEN_CONFIG = {
+    'dsn': 'https://97197e8d6d1b4309b83cf58ef457f76c:41f86676277e45609edb288507ce2995@app.getsentry.com/63207',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': release,
+}
+
+
 # Log everything to the logs directory at the top
 # LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')
 

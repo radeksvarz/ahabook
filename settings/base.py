@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,16 +128,19 @@ LANGUAGES = (
 
 STATIC_URL = '/static/'
 
+# Crispy Form Theme - Bootstrap 3
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# For Bootstrap 3, change error alert to 'danger'
+from django.contrib import messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
+
 # Sentry raven config
 import raven
 
 release = raven.fetch_git_sha(BASE_DIR)
 print ("Aha!book release: %s" % release)
 
-RAVEN_CONFIG = {
-    'dsn': 'https://97197e8d6d1b4309b83cf58ef457f76c:41f86676277e45609edb288507ce2995@app.getsentry.com/63207',
-    # If you are using git, you can also automatically configure the
-    # release based on the git info.
-    'release': release,
-}
 
