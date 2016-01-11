@@ -1,0 +1,12 @@
+# Local development dependencies go here
+-r base.txt
+
+#
+# https://factoryboy.readthedocs.org/en/latest/introduction.html
+# The purpose of factory_boy is to provide a default way of getting a new instance, while still being able to override some fields on a per-call basis.
+#
+factory_boy
+
+
+# A configurable set of panels that display various debug information about the current request/response
+django-debug-toolbar
