@@ -29,6 +29,7 @@ RAVEN_CONFIG = {
     'release': release,
 }
 
+print("Raven %s: " % env("RAVEN_DSN"))
 
 # Log everything to the logs directory at the top
 # LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')
