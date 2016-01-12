@@ -33,3 +33,6 @@ psycopg2>=2.6.1,<3.0.0
 django-crispy-forms
 
 django-admin-bootstrapped
+
+# otherwise there is error in import on production
+six>=1.10
