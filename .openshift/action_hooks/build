@@ -14,11 +14,11 @@ if [ ! -d $OPENSHIFT_DATA_DIR/static ]; then
     mkdir $OPENSHIFT_DATA_DIR/static
 fi
 
-if [ -d $OPENSHIFT_REPO_DIR/wsgi/static ]; then
-    rm -rf $OPENSHIFT_REPO_DIR/wsgi/static
+if [ -d $OPENSHIFT_REPO_DIR/static ]; then
+    rm -rf $OPENSHIFT_REPO_DIR/static
 fi
 
-ln -sf $OPENSHIFT_DATA_DIR/static $OPENSHIFT_REPO_DIR/wsgi/static
+ln -sf $OPENSHIFT_DATA_DIR/static $OPENSHIFT_REPO_DIR/static
 
 # Make the media directory available for the application
 
