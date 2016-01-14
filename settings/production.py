@@ -44,8 +44,6 @@ RAVEN_CONFIG = {
 print("Raven %s: " % env("RAVEN_DSN"))
 
 
-SECRET_KEY = os.environ['OPENSHIFT_SECRET_TOKEN']
-
 # DB settings based on Openshift variables
 
 if os.environ.has_key('OPENSHIFT_POSTGRESQL_DB_HOST'):

@@ -28,16 +28,16 @@ fi
 
 ln -sf $OPENSHIFT_DATA_DIR/media $OPENSHIFT_DATA_DIR/static/media
 
-# set DJANGO security configuration keys randomly
-# not needed we will use openshift random token
-# export SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 
-# exported envs doe not last - we will create an extra ones via
+# exported envs do not last - we will create an extra ones via
 # echo -n what > ~/.env/user_vars/ENV
 
 # TO CREATE:
 # ALLOWED_HOSTS
 # RAVEN_DSN
+# SECRET_KEY
+
+echo -n  $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) > ~/.env/user_vars/SECRET_KEY
 
 # unclear key
 # export NEVERCACHE_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)

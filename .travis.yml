@@ -14,6 +14,7 @@ env:
   - OPENSHIFT_POSTGRESQL_DB_HOST=127.0.0.1
   - OPENSHIFT_POSTGRESQL_DB_PORT=5432
   - OPENSHIFT_SECRET_TOKEN=testing_travis
+  - SECRET_KEY=testing_travis
   - ALLOWED_HOSTS=127.0.0.1,localhost,0.0.0.0
   - secure: prqAzWnY+Ue5cIlqisVAkUkBZN8d+L4JyXEz8qBZSCuMMKBUgm2cj6zX+pOHeVrbuOcaIxikdolT8Vfy6x8B941g09UVpulEB
       E192IjtYLXpOJhRezwWX2E+R1yg/95KTXWHUrZDxfs47bjqnHsAjY/2fZJ3UoSy/nWhgeYu7aLmxM0S1bCUe+ee/JLZaY5tlwct9cqXu+Lsl
