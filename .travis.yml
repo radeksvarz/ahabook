@@ -5,8 +5,15 @@ cache: pip
 env:
   global:
   - DEBUG=False
-  - SECRET_KEY=testing travis
+  - SECRET_KEY=testing_travis
   - DATABASE_URL=psql://postgres:@127.0.0.1:5432/ahabook
+  - OPENSHIFT_DATA_DIR=/home/travis/build/radeksvarz/ahabook
+  - OPENSHIFT_GEAR_DNS=127.0.0.1
+  - OPENSHIFT_APP_NAME=ahabook
+  - OPENSHIFT_POSTGRESQL_DB_USERNAME=postgres
+  - OPENSHIFT_POSTGRESQL_DB_PASSWORD=
+  - OPENSHIFT_POSTGRESQL_DB_HOST=127.0.0.1
+  - OPENSHIFT_POSTGRESQL_DB_PORT=5432
   - ALLOWED_HOSTS=127.0.0.1,localhost,0.0.0.0
   - secure: prqAzWnY+Ue5cIlqisVAkUkBZN8d+L4JyXEz8qBZSCuMMKBUgm2cj6zX+pOHeVrbuOcaIxikdolT8Vfy6x8B941g09UVpulEB
       E192IjtYLXpOJhRezwWX2E+R1yg/95KTXWHUrZDxfs47bjqnHsAjY/2fZJ3UoSy/nWhgeYu7aLmxM0S1bCUe+ee/JLZaY5tlwct9cqXu+Lsl
@@ -22,6 +29,7 @@ services:
 install:
 - pip install -r requirements/test.txt
 before_script:
+- mkdir static
 - psql -c 'create database ahabook;' -U postgres
 - python manage.py migrate --settings=settings.production
 script:

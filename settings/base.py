@@ -82,16 +82,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': env.db(), # Raises ImproperlyConfigured exception if DATABASE_URL not in os.environ
-}
-
-debug_env_db = env.db()
-debug_env_db["PASSWORD"] = "******"
-print("DB:%s" % debug_env_db)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators

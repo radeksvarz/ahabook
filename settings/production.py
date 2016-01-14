@@ -4,6 +4,7 @@
 
 from .base import *             # NOQA
 from os.path import join
+import os
 import logging.config
 
 
@@ -19,7 +20,18 @@ TEMPLATES[0]['OPTIONS'].update({"loaders": loaders})
 # TEMPLATES[0].update({"APP_DIRS": False})
 
 # Define STATIC_ROOT for the collectstatic command
-STATIC_ROOT = join(BASE_DIR, '..', 'site', 'static')
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/var/www/example.com/static/"
+# We want to collect static files to the persistent data dir, so it is not deleted during Openshift git push deployment
+# On Openshift it is symlinked to the ./repo/wsgi/static
+# If using on local PC, the default project static dir is used
+STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'static')
+
+# old Openshift compatibility (static files are deleted during git push)
+#if os.environ.has_key('OPENSHIFT_REPO_DIR'):
+#    STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static')
 
 
 RAVEN_CONFIG = {
@@ -30,6 +42,30 @@ RAVEN_CONFIG = {
 }
 
 print("Raven %s: " % env("RAVEN_DSN"))
+
+
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+# Adding the Openshift domain
+ALLOWED_HOSTS += [
+    os.environ.get('OPENSHIFT_GEAR_DNS'),
+]
+
+
+# DB settings based on Openshift variables
+
+if os.environ.has_key('OPENSHIFT_POSTGRESQL_DB_HOST'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ.get('OPENSHIFT_APP_NAME'),
+            'USER': os.environ.get('OPENSHIFT_POSTGRESQL_DB_USERNAME'),
+            'PASSWORD': os.environ.get('OPENSHIFT_POSTGRESQL_DB_PASSWORD'),
+            'HOST': os.environ.get('OPENSHIFT_POSTGRESQL_DB_HOST'),
+            'PORT': os.environ.get('OPENSHIFT_POSTGRESQL_DB_PORT'),
+        }
+    }
+
 
 # Log everything to the logs directory at the top
 # LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')

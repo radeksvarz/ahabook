@@ -30,5 +30,7 @@ ln -sf $OPENSHIFT_DATA_DIR/media $OPENSHIFT_DATA_DIR/static/media
 
 # set DJANGO security configuration keys randomly
 
-export DJANGO_SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-export DJANGO_NEVERCACHE_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+export SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+
+# unclear key
+# export NEVERCACHE_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
