@@ -44,13 +44,7 @@ RAVEN_CONFIG = {
 print("Raven %s: " % env("RAVEN_DSN"))
 
 
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-# Adding the Openshift domain
-ALLOWED_HOSTS += [
-    os.environ.get('OPENSHIFT_GEAR_DNS'),
-]
-
+SECRET_KEY = os.environ['OPENSHIFT_SECRET_TOKEN']
 
 # DB settings based on Openshift variables
 
