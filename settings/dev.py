@@ -9,14 +9,12 @@ import environ
 
 # env settings in env variable or env file
 env = environ.Env(DEBUG=(bool, False), ) # set default values and casting
-ENV_DIR = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'static')
 environ.Env.read_env(os.path.join(BASE_DIR, ".env")) # reading .env file
 
 SECRET_KEY = env("SECRET_KEY")
 
 ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(",")
 print("Allowed hosts:%s" % ALLOWED_HOSTS)
-
 
 # get the current git release version
 RELEASE = raven.fetch_git_sha(BASE_DIR)
