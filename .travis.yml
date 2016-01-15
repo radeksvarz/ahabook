@@ -38,12 +38,12 @@ script:
 after_success: 
 notifications:
   email: false
-deploy:
-  provider: openshift
-  user: radek@svarz.cz
-  password:
-    secure: UiDt7CM/mpJYXXKUHTmn9UTZTDJW5vH3NOjpwHa0pxNq8HIX7ujQaYD+9sV34bnPsFsvZsjiyNrOfc99E262snT/0v5CumOEeS5NKzmiDyzr5XeGRTT+DxR1e6sbHTYaWshOdjr1AnC8crt+/efUf5Nn0w7Hd8hh9s/Tjw2JLBh81bbEZs69OhJmXRMGD24LLFZp+FlWXIrmEitweWl0ljwQVry8F227mBT0EvMhDUPZ6x3vgUQpbEfzDP2uvmH8KAGXiKE5Ct5/iX0WnAdQUPjZdT+rPfwL+fLBUlSEbTNqURaLxreP0TIzNz2UT+zsBEgP2lC5Dn6GyLS26McaRVTzG7FP3jQxoqVlNOGyBgBwFWIKoCok9hyZiVQDr+8ragtOCpiuIXjF4VO9HcW7KsDYUKWWyS0OPIDUw9ifrHtYhm9IUwGHK1CAhj7FTdFA7dKfcvT/PyYNhw2WFc6jOWqSwmy4tCmM7nkwS1c6B9hAb5Q4AV1x/ZrIV5Jmz5LjsSKoDeZhafjiyyx/wTBzILizWUfjXWQfmnuElAE4i6+cB0X2PvzhFOp/BNt372pqhfvsmldiMUmeQVZIp8eYHlrx3DHwfoxXpAPIEwRL7HWEqzRdGEB5U85KqdjKcsM5bYFfdcJ0CV42St7Spx3HspAh7uUAYLdd2U/rFLM0xtM=
-  app: ahabook
-  domain: svarz
-  on:
-    repo: radeksvarz/ahabook
+# deploy:
+#  provider: openshift
+#  user: radek@svarz.cz
+#  password:
+#    secure: UiDt7CM/mpJYXXKUHTmn9UTZTDJW5vH3NOjpwHa0pxNq8HIX7ujQaYD+9sV34bnPsFsvZsjiyNrOfc99E262snT/0v5CumOEeS5NKzmiDyzr5XeGRTT+DxR1e6sbHTYaWshOdjr1AnC8crt+/efUf5Nn0w7Hd8hh9s/Tjw2JLBh81bbEZs69OhJmXRMGD24LLFZp+FlWXIrmEitweWl0ljwQVry8F227mBT0EvMhDUPZ6x3vgUQpbEfzDP2uvmH8KAGXiKE5Ct5/iX0WnAdQUPjZdT+rPfwL+fLBUlSEbTNqURaLxreP0TIzNz2UT+zsBEgP2lC5Dn6GyLS26McaRVTzG7FP3jQxoqVlNOGyBgBwFWIKoCok9hyZiVQDr+8ragtOCpiuIXjF4VO9HcW7KsDYUKWWyS0OPIDUw9ifrHtYhm9IUwGHK1CAhj7FTdFA7dKfcvT/PyYNhw2WFc6jOWqSwmy4tCmM7nkwS1c6B9hAb5Q4AV1x/ZrIV5Jmz5LjsSKoDeZhafjiyyx/wTBzILizWUfjXWQfmnuElAE4i6+cB0X2PvzhFOp/BNt372pqhfvsmldiMUmeQVZIp8eYHlrx3DHwfoxXpAPIEwRL7HWEqzRdGEB5U85KqdjKcsM5bYFfdcJ0CV42St7Spx3HspAh7uUAYLdd2U/rFLM0xtM=
+#  app: ahabook
+#  domain: svarz
+#  on:
+#    repo: radeksvarz/ahabook
