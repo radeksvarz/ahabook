@@ -10,8 +10,8 @@ import environ
 
 # env settings in env variable or env file
 env = environ.Env(DEBUG=(bool, False), ) # set default values and casting
-ENV_DIR = os.path.join(os.environ.get('OPENSHIFT_HOMEDIR'), '.env/user_vars/.env')
-environ.Env.read_env(os.path.join(BASE_DIR, ".env")) # reading .env file
+ENV_DIR = os.path.join(os.environ.get('OPENSHIFT_HOMEDIR'), '.env/user_vars')
+environ.Env.read_env(os.path.join(ENV_DIR, ".env")) # reading .env file
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
