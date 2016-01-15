@@ -138,10 +138,4 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-# Sentry raven config
-import raven
-
-release = raven.fetch_git_sha(BASE_DIR)
-print ("Aha!book release: %s" % release)
-
-
+RELEASE = env("RELEASE")

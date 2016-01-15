@@ -38,8 +38,10 @@ RAVEN_CONFIG = {
     'dsn': env("RAVEN_DSN"),
     # If you are using git, you can also automatically configure the
     # release based on the git info.
-    'release': release,
+    'release': RELEASE,
 }
+
+print ("Aha!book release: %s" % RELEASE)
 
 print("Raven %s: " % env("RAVEN_DSN"))
 

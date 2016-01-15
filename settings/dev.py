@@ -3,7 +3,11 @@
 """
 
 from .base import *
+import raven
 
+# get the current git release version
+RELEASE = raven.fetch_git_sha(BASE_DIR)
+print ("Aha!book release: %s" % RELEASE)
 
 ########## DEBUG
 DEBUG = True
@@ -27,3 +31,4 @@ DATABASES = {
 debug_env_db = env.db()
 debug_env_db["PASSWORD"] = "******"
 print("DB:%s" % debug_env_db)
+
