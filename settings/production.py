@@ -10,7 +10,7 @@ import environ
 
 # env settings in env variable or env file
 env = environ.Env(DEBUG=(bool, False), ) # set default values and casting
-ENV_DIR = os.path.join(os.environ.get('OPENSHIFT_HOMEDIR'), '.env/user_vars')
+ENV_DIR = os.path.join(os.environ.get('OPENSHIFT_HOME_DIR'), '.env/user_vars')
 environ.Env.read_env(os.path.join(ENV_DIR, ".env")) # reading .env file
 
 # Quick-start development settings - unsuitable for production
