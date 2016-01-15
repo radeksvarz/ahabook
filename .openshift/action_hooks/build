@@ -34,7 +34,7 @@ ln -sf $OPENSHIFT_DATA_DIR/media $OPENSHIFT_DATA_DIR/static/media
 
 # TO CREATE:
 # ALLOWED_HOSTS
-# RAVEN_DSN
+# SENTRY_DSN
 # SECRET_KEY
 
 echo -n  $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) > ~/.env/user_vars/SECRET_KEY

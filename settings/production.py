@@ -35,7 +35,7 @@ STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR'), 'static')
 
 
 RAVEN_CONFIG = {
-    'dsn': env("RAVEN_DSN"),
+    'dsn': env("SENTRY_DSN"),
     # If you are using git, you can also automatically configure the
     # release based on the git info.
     'release': RELEASE,
@@ -43,7 +43,7 @@ RAVEN_CONFIG = {
 
 print ("Aha!book release: %s" % RELEASE)
 
-print("Raven %s: " % env("RAVEN_DSN"))
+print("Raven %s: " % env("SENTRY_DSN"))
 
 
 # DB settings based on Openshift variables
