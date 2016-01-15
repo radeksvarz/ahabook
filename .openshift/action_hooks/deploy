@@ -4,6 +4,27 @@
 # up again.  This script gets executed directly, so it could be python, php,
 # ruby, etc.
 
+# Make the static files directory for the application
+# and link to wsgi/static
+
+if [ ! -d $OPENSHIFT_DATA_DIR/static ]; then
+    mkdir $OPENSHIFT_DATA_DIR/static
+fi
+
+if [ -d $OPENSHIFT_REPO_DIR/wsgi/static ]; then
+    rm -rf $OPENSHIFT_REPO_DIR/wsgi/static
+fi
+
+ln -sf $OPENSHIFT_DATA_DIR/static $OPENSHIFT_REPO_DIR/wsgi/static
+
+# Make the media directory available for the application
+
+if [ ! -d $OPENSHIFT_DATA_DIR/media ]; then
+    mkdir $OPENSHIFT_DATA_DIR/media
+fi
+
+ln -sf $OPENSHIFT_DATA_DIR/media $OPENSHIFT_DATA_DIR/static/media
+
 source $OPENSHIFT_PYTHON_DIR/virtenv/venv/bin/activate
 
 # If no database exists create one with sample content.
@@ -26,5 +47,3 @@ python "$OPENSHIFT_REPO_DIR"manage.py migrate --noinput --settings=settings.prod
 
 #ln -sf $OPENSHIFT_REPO_DIR/wsgi/wwwroot $OPENSHIFT_DATA_DIR/static/wwwroot
 
-# Override Mezzanine default icon
-#cp -rf $OPENSHIFT_REPO_DIR/wsgi/wwwroot/favicon.ico $OPENSHIFT_DATA_DIR/static/img/favicon.ico

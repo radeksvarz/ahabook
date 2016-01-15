@@ -7,38 +7,3 @@
 # Activate VirtualEnv in order to use the correct libraries
 # not needed (yet :)
 
-# Make the static files directory for the application
-# and link to wsgi/static
-
-if [ ! -d $OPENSHIFT_DATA_DIR/static ]; then
-    mkdir $OPENSHIFT_DATA_DIR/static
-fi
-
-if [ -d $OPENSHIFT_REPO_DIR/static ]; then
-    rm -rf $OPENSHIFT_REPO_DIR/static
-fi
-
-ln -sf $OPENSHIFT_DATA_DIR/static $OPENSHIFT_REPO_DIR/static
-
-# Make the media directory available for the application
-
-if [ ! -d $OPENSHIFT_DATA_DIR/media ]; then
-    mkdir $OPENSHIFT_DATA_DIR/media
-fi
-
-ln -sf $OPENSHIFT_DATA_DIR/media $OPENSHIFT_DATA_DIR/static/media
-
-
-# exported envs do not last - we will create an extra ones via
-# echo -n what > ~/.env/user_vars/ENV
-
-# TO CREATE:
-# ALLOWED_HOSTS
-# SENTRY_DSN
-# SECRET_KEY
-
-echo -n  $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) > ~/.env/user_vars/SECRET_KEY
-
-# unclear key
-# export NEVERCACHE_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
-
