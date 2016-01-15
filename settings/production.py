@@ -28,6 +28,7 @@ SECRET_KEY = env("SECRET_KEY")
 ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(",")
 print("Allowed hosts:%s" % ALLOWED_HOSTS)
 
+# get the current git release version - populated by CI
 RELEASE = env("RELEASE")
 
 import logging.config
