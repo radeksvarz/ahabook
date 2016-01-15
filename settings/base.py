@@ -34,7 +34,7 @@ print("Debug mode:%s" % DEBUG)
 SECRET_KEY = env("SECRET_KEY")
 
 # Must mention ALLOWED_HOSTS in production!
-ALLOWED_HOSTS = env("ALLOWED_HOSTS")
+ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(",")
 print("Allowed hosts:%s" % ALLOWED_HOSTS)
 
 # Application definition

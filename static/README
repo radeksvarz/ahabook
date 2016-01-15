@@ -1,0 +1,12 @@
+Put all static files / folders here.
+
+At least:
+
+ - favicon.ico
+ - robots.txt
+
+To avoid 404 errors in logs.
+
+The files will run with runserver, and when you push to Openshift, collectstatic will copy all necessary static files to wsgi/static.
+
+DO NOT PUT STATIC FILES IN wsgi/static, that isn't the right way to do it.

@@ -1,0 +1,6 @@
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+
+# We must keep it like that - see issue:
+#   https://github.com/openshift/origin-server/issues/5344
+
