@@ -76,17 +76,16 @@ print("Raven %s: " % env("SENTRY_DSN"))
 
 # DB settings based on Openshift variables
 
-if 'OPENSHIFT_POSTGRESQL_DB_HOST' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ.get('OPENSHIFT_APP_NAME'),
-            'USER': os.environ.get('OPENSHIFT_POSTGRESQL_DB_USERNAME'),
-            'PASSWORD': os.environ.get('OPENSHIFT_POSTGRESQL_DB_PASSWORD'),
-            'HOST': os.environ.get('OPENSHIFT_POSTGRESQL_DB_HOST'),
-            'PORT': os.environ.get('OPENSHIFT_POSTGRESQL_DB_PORT'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('OPENSHIFT_APP_NAME'),
+        'USER': os.environ.get('OPENSHIFT_POSTGRESQL_DB_USERNAME'),
+        'PASSWORD': os.environ.get('OPENSHIFT_POSTGRESQL_DB_PASSWORD'),
+        'HOST': os.environ.get('OPENSHIFT_POSTGRESQL_DB_HOST'),
+        'PORT': os.environ.get('OPENSHIFT_POSTGRESQL_DB_PORT'),
     }
+}
 
 
 # We use SENTRY for logging
