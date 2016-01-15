@@ -46,7 +46,7 @@ print("Raven %s: " % env("RAVEN_DSN"))
 
 # DB settings based on Openshift variables
 
-if os.environ.has_key('OPENSHIFT_POSTGRESQL_DB_HOST'):
+if 'OPENSHIFT_POSTGRESQL_DB_HOST' in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
