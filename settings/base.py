@@ -11,31 +11,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print("Ahabook running in %s" %(BASE_DIR,))
-
-# env settings in env variable or env file
-env = environ.Env(DEBUG=(bool, False), ) # set default values and casting
-environ.Env.read_env(os.path.join(BASE_DIR, ".env")) # reading .env file
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# For security and performance reasons, DEBUG to be turned off inproduction
-DEBUG = env('DEBUG') # False if not in os.environ
-# TEMPLATE_DEBUG = False # - deprecated
-print("Debug mode:%s" % DEBUG)
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
-
-# Must mention ALLOWED_HOSTS in production!
-ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(",")
-print("Allowed hosts:%s" % ALLOWED_HOSTS)
+print("App running in %s" %(BASE_DIR,))
 
 # Application definition
 
@@ -138,4 +117,3 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-RELEASE = env("RELEASE")
