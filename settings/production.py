@@ -29,7 +29,31 @@ ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(",")
 print("Allowed hosts:%s" % ALLOWED_HOSTS)
 
 # get the current git release version - populated by CI
-RELEASE = env("RELEASE")
+# RELEASE = env("RELEASE")
+import raven
+import six
+def git_revision():
+    head_path = os.path.join(os.environ.get('OPENSHIFT_HOMEDIR'), 'git/ahabook.git', 'HEAD')
+    if not os.path.exists(head_path):
+        raise InvalidGitRepository('Cannot identify HEAD for git repository at %s' % (path,))
+
+    with open(head_path, 'r') as fp:
+        head = six.text_type(fp.read()).strip()
+
+    if head.startswith('ref: '):
+        revision_file = os.path.join(
+            os.environ.get('OPENSHIFT_HOMEDIR'), 'git/ahabook.git', *head.rsplit(' ', 1)[-1].split('/')
+        )
+    else:
+        return head
+
+    with open(revision_file, 'r') as fh:
+        return six.text_type(fh.read()).strip()
+
+    return "n/a"
+
+
+RELEASE = git_revision()[:8]
 
 import logging.config
 

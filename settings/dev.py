@@ -17,7 +17,7 @@ ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(",")
 print("Allowed hosts:%s" % ALLOWED_HOSTS)
 
 # get the current git release version
-RELEASE = raven.fetch_git_sha(BASE_DIR)
+RELEASE = raven.fetch_git_sha(BASE_DIR)[:8]
 print ("Aha!book release: %s" % RELEASE)
 
 ########## DEBUG
