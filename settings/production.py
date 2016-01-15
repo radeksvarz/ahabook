@@ -9,14 +9,16 @@ import logging.config
 
 
 # Cache the templates in memory for speed-up
-loaders = [
-    ('django.template.loaders.cached.Loader', [
-        'django.template.loaders.filesystem.Loader',
-        'django.template.loaders.app_directories.Loader',
-    ]),
-]
-
-TEMPLATES[0]['OPTIONS'].update({"loaders": loaders})
+# Cannot use now:
+#  error: app_dirs must not be set when loaders is defined
+# loaders = [
+#     ('django.template.loaders.cached.Loader', [
+#         'django.template.loaders.filesystem.Loader',
+#         'django.template.loaders.app_directories.Loader',
+#     ]),
+# ]
+#
+# TEMPLATES[0]['OPTIONS'].update({"loaders": loaders})
 # TEMPLATES[0].update({"APP_DIRS": False})
 
 # Define STATIC_ROOT for the collectstatic command
@@ -60,6 +62,8 @@ if 'OPENSHIFT_POSTGRESQL_DB_HOST' in os.environ:
         }
     }
 
+
+# We use SENTRY for logging
 
 # Log everything to the logs directory at the top
 # LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')
