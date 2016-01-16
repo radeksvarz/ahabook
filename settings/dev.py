@@ -45,3 +45,9 @@ debug_env_db = env.db()
 debug_env_db["PASSWORD"] = "******"
 print("DB:%s" % debug_env_db)
 
+ENV="DEV"
+
+SETTINGS_EXPORT = [
+    'ENV',
+    'RELEASE',
+]

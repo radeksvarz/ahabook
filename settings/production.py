@@ -35,7 +35,7 @@ import six
 def git_revision():
     head_path = os.path.join(os.environ.get('OPENSHIFT_HOMEDIR'), 'git/ahabook.git', 'HEAD')
     if not os.path.exists(head_path):
-        raise InvalidGitRepository('Cannot identify HEAD for git repository at %s' % (path,))
+        return "n/a"
 
     with open(head_path, 'r') as fp:
         head = six.text_type(fp.read()).strip()
@@ -111,6 +111,12 @@ DATABASES = {
     }
 }
 
+ENV="PRODUCTION"
+
+SETTINGS_EXPORT = [
+    'ENV',
+    'RELEASE',
+]
 
 # We use SENTRY for logging
 

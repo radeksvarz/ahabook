@@ -36,3 +36,8 @@ django-admin-bootstrapped
 
 # otherwise there is error in import on production
 six>=1.10
+
+#
+# django-settings-export allows you to export certain settings to your templates.
+#
+django-settings-export
