@@ -10,3 +10,6 @@ factory_boy
 
 # A configurable set of panels that display various debug information about the current request/response
 django-debug-toolbar
+
+# for the windows ipython shell
+pyreadline

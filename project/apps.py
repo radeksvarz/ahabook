@@ -19,7 +19,11 @@ class ProjectConfig(AppConfig):
         except LookupError:
             return
 
-        conf_sites = getattr(settings, "SITES", [("example.com", "Example"), ])
+        conf_sites = getattr(settings, "SITES", [(1, "example.com", "Example"), ])
+
+        # TODO we should not delete sites if correctly configured (loosing relationship to the social auths)
+
+
 
         try:
             Site.objects.all().delete()
@@ -29,5 +33,5 @@ class ProjectConfig(AppConfig):
 
         print("Setting sites in DB to:", conf_sites)
 
-        for id, conf_site in enumerate(conf_sites, 1):
-            Site.objects.create(id=id, domain=conf_site[0], name=conf_site[1])
+        for conf_site in conf_sites:
+            Site.objects.create(id=conf_site[0], domain=conf_site[1], name=conf_site[2])

@@ -51,3 +51,10 @@ SETTINGS_EXPORT = [
     'ENV',
     'RELEASE',
 ]
+
+# We want to add site info automatically
+SITES = [(1, "127.0.0.1:8000", "Local Dev"), ]
+
+
+# We print emails to the console (esp. for verification emails)
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

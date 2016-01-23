@@ -39,5 +39,12 @@ six>=1.10
 
 #
 # django-settings-export allows you to export certain settings to your templates.
+# Used for the RELEASE info in admin
 #
 django-settings-export
+
+# ==========================================================
+# Integrated set of Django applications addressing authentication, registration, account management
+# as well as 3rd party (social) account authentication.
+# ==========================================================
+django-allauth
