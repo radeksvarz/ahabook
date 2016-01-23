@@ -27,6 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'raven.contrib.django.raven_compat',
+    'django.contrib.sites',
+    'project',
+    'journal',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -124,3 +127,14 @@ STATICFILES_DIRS = [
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR,"static"),
 ]
+
+# Site framework is required for django allauth
+# http://django-allauth.readthedocs.org/en/latest/installation.html
+SITE_ID = 1
+
+# We want to add site info automatically
+# MIGRATION_MODULES = {
+#     'sites': 'project.fixtures.sites_migrations',
+# }
+
+SITES = [("ahabook.cz", "Aha!book"), ("127.0.0.1:8000", "Local Dev")]
