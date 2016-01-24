@@ -7,3 +7,7 @@
 
  + shows environment label in admin (DEV / Production)
 
+
+
+ - journal_photo.jpg
+ - 

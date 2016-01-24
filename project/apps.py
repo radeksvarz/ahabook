@@ -21,11 +21,21 @@ class ProjectConfig(AppConfig):
 
         conf_sites = getattr(settings, "SITES", [(1, "example.com", "Example"), ])
 
-        # TODO we should not delete sites if correctly configured (loosing relationship to the social auths)
-
-
-
+        # We should not delete sites if correctly configured (loosing relationship to the social auths)
         try:
+            db_sites = Site.objects.order_by("pk")
+            if len(db_sites) == len(conf_sites):
+                for db_site, conf_site in zip(db_sites, conf_sites):
+                    if(  db_site.pk != conf_site[0] or
+                         db_site.domain != conf_site[1] or
+                         db_site.name != conf_site[2]):
+                        break
+                else: # non break
+                    # we checked the equality of the whole set of sites
+                    print("Sites already in DB:", conf_sites)
+                    return
+
+            # Set Sites only if different to current situation in DB
             Site.objects.all().delete()
         except ProgrammingError:
             print("Sites configuration has an unapplied migration. Sites SETTINGS will not be used until the migration is executed.")

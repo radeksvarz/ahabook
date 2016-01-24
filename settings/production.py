@@ -56,7 +56,7 @@ def git_revision():
 RELEASE = git_revision()[:8]
 
 # We want to add site info automatically
-SITES = [(1, "ahabook.cz", "Aha!book"),]
+SITES = [(1, "https://ahabook.cz", "Aha!book"),]
 
 import logging.config
 
