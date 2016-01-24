@@ -20,7 +20,11 @@ from journal.views import index
 
 
 urlpatterns = [
-    url(r'^$', index, name = "home"),
+    url(r'^$', index, name="home"),
     url(r'^admin/', admin.site.urls),
+    # Skip the logout confirmation page of the django allauth
+    # Warning: http://django-allauth.readthedocs.org/en/latest/views.html#logout
+    # Do not use when users submit html code for others (ala bulletin boards)
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     url(r'^accounts/', include('allauth.urls')),
 ]
