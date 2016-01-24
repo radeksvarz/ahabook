@@ -121,6 +121,9 @@ SETTINGS_EXPORT = [
     'RELEASE',
 ]
 
+# For Django allauth social authentication for URL construction for reset passwords
+DEFAULT_HTTP_PROTOCOL = "https"
+
 # We use SENTRY for logging
 
 # Log everything to the logs directory at the top

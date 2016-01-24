@@ -13,4 +13,9 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.production")
 
+# Make sure Django constructs URLs wih https for Google to avoid Error: redirect_uri_mismatch (https vs http in redirect_uri
+# http://stackoverflow.com/questions/25824598/django-allauth-not-sending-links-with-https
+# http://security.stackexchange.com/questions/8964/trying-to-make-a-django-based-site-use-https-only-not-sure-if-its-secure
+os.environ['HTTPS'] = "on"
+
 application = get_wsgi_application()

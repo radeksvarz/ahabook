@@ -9,5 +9,6 @@
 
 
 
- - journal_photo.jpg
- - 
+ - justwriting photo by Joel Montes de Oca
+
+ - used under license https://creativecommons.org/licenses/by-sa/2.0/
