@@ -46,11 +46,11 @@ def git_revision():
         )
     else:
         return head
-
-    with open(revision_file, 'r') as fh:
-        return six.text_type(fh.read()).strip()
-
-    return "n/a"
+    try:
+        with open(revision_file, 'r') as fh:
+            return six.text_type(fh.read()).strip()
+    except FileNotFoundError:
+        return "n/a"
 
 
 RELEASE = git_revision()[:8]
