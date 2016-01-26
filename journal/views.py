@@ -3,4 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return render(request, "index.html", content_type="text/html")
+    if request.user.is_authenticated():
+        return render(request, "index_loggedin.html")
+    return render(request, "index_public.html")

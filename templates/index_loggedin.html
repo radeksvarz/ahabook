@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aha!book</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+</head>
+<body class="logged-in">
+<a href="/accounts/logout/" class="pull-right">Logout</a>
+
+{% if request.user.first_name or request.user.last_name %}
+        {{ request.user.first_name }} {{ request.user.last_name }}
+{% else %}
+        {{ request.user.username }}
+{% endif %}
+
+{% if request.user.profile.account_verified %} (verified) {% else %} (unverified) {% endif %}
+
+</body>
+</html>

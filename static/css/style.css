@@ -1,4 +1,13 @@
+
+.logged-in {
+    background: gainsboro url("/static/img/paper.jpg") no-repeat center 80px;
+}
+
 .logged-out {
     background: gainsboro url("/static/img/justwriting.jpg") no-repeat center 30px;
     background-size: 90%;
+}
+
+.pull-right {
+    float: right;
 }
