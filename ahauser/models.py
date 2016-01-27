@@ -1,3 +1,7 @@
+# Django custom model as inspired from:
+#   https://docs.djangoproject.com/en/1.8/topics/auth/customizing/#a-full-example
+#   https://github.com/jcugat/django-custom-user/blob/master/custom_user/models.py
+
 from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser

@@ -11,8 +11,18 @@
 
 
 
- - justwriting photo by Joel Montes de Oca
+Inspired from:
+ -  A Django project skeleton that is modern and cutting edge. http://django-edge.readthedocs.org/ https://github.com/arocks/edge
 
+ - A Cookiecutter template for creating production-ready Django projects quickly. https://github.com/pydanny/cookiecutter-django
+
+ - Django OpenShift 1.8 https://github.com/Gpzim98/Django-OpenShift-1.8
+
+ - Django OpenShift v2 https://github.com/jfmatth/openshift-django
+    This git repository helps you get up and running quickly with django v1.7+ and Openshift.
+
+Other:
+ - justwriting photo by Joel Montes de Oca
  - used under license https://creativecommons.org/licenses/by-sa/2.0/
 
 
