@@ -69,6 +69,7 @@ class AhaUser(AbstractBaseUser):
         'active. Unselect this instead of deleting accounts.'))
 
     date_joined = models.DateTimeField(_('date joined'), default=tz.now)
+    updated = models.DateTimeField(_('updated'), auto_now=True, null=True)
 
     objects = AhaUserManager()
 
