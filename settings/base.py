@@ -20,7 +20,7 @@ print("App running in %s" %(BASE_DIR,))
 
 INSTALLED_APPS = [
     "ahauser",
-    'django_admin_bootstrapped',
+    'django_admin_bootstrapped', # issue with horizontal group of checkboxes
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

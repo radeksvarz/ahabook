@@ -32,3 +32,7 @@ Other:
     - the project = Service Provider
     - ID servicces (Identity providers) - eg Okta, OneLogin, Pony Identity
     - check Sentry enterprise SSO
+
+ FIXED: admin
+  - bootstrapped - check boxes in horizontal
+    - overriden fieldset template - see https://github.com/django-admin-bootstrapped/django-admin-bootstrapped/issues/191

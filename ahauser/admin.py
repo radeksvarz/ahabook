@@ -63,9 +63,13 @@ class UserAdmin(BaseUserAdmin):
     list_display = ('email', 'gender', 'is_admin', 'is_active', 'date_joined')
     list_filter = ('is_admin', 'is_active')
     fieldsets = (
-        (None, {'fields': ('email', 'password', ('date_joined', 'updated'))}),
+        (None, {'fields': ('email', 'password', 'date_joined', 'updated')}),
         ('Personal info', {'fields': ('how_to_call', 'gender',)}),
-        ('Settings', {'fields': ('remind_hour', 'timezone',)}),
+        ('Settings', {'fields': (
+                        ('remind_hour', 'timezone',),
+                        ('remind_mo', 'remind_tu', 'remind_we',
+                         'remind_th', 'remind_fr', 'remind_sa', 'remind_su'),
+                    )}),
         ('Permissions', {'fields': ('is_admin',)}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin

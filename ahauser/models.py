@@ -42,24 +42,40 @@ class AhaUserManager(BaseUserManager):
 
 
 class AhaUser(AbstractBaseUser):
+    # Unique identity (login)
     email = models.EmailField(
         verbose_name=_('email address'),
         max_length=255,
         unique=True,
         db_index=True
     )
+
+    ################### Personal
+
     GENDERS = (
         ("m", _("male")),
         ("f", _("female")),
         ("x", _("unknown"))
     )
+    # gender is received from social auth and is mandatory field in the profile (for specific texts)
     gender = models.CharField(choices=GENDERS, default="x", max_length=1, verbose_name=_("gender"))
 
     how_to_call = models.CharField(max_length=101, blank=True, verbose_name=_("How to call you"))
 
+    ################### Settings
     timezone = TimeZoneField(default="Europe/Prague", verbose_name=_("Timezone"))
 
     remind_hour = models.IntegerField(choices=[(i, i) for i in range(1,25)], default=20, verbose_name=_("reminder hour"))
+
+    remind_mo = models.BooleanField(_("Po"), default=True)
+    remind_tu = models.BooleanField(_("Út"), default=True)
+    remind_we = models.BooleanField(_("St"), default=True)
+    remind_th = models.BooleanField(_("Čt"), default=True)
+    remind_fr = models.BooleanField(_("Pá"), default=True)
+    remind_sa = models.BooleanField(_("So"), default=True)
+    remind_su = models.BooleanField(_("Ne"), default=True)
+
+    ################## System
 
     is_admin = models.BooleanField(_('Admin'),default=False, help_text=_(
             'Designates whether the user can log into this admin site.'))
