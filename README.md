@@ -7,8 +7,18 @@
 
  + shows environment label in admin (DEV / Production)
 
+ + allauth integrated with Google and Linkedin SSO
+
 
 
  - justwriting photo by Joel Montes de Oca
 
  - used under license https://creativecommons.org/licenses/by-sa/2.0/
+
+
+ SSO - Allauth (for social accounts)
+
+ TODO - SAML 2
+    - the project = Service Provider
+    - ID servicces (Identity providers) - eg Okta, OneLogin, Pony Identity
+    - check Sentry enterprise SSO

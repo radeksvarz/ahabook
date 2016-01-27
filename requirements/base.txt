@@ -37,10 +37,10 @@ django-admin-bootstrapped
 # otherwise there is error in import on production
 six>=1.10
 
-#
+# ==========================================================
 # django-settings-export allows you to export certain settings to your templates.
-# Used for the RELEASE info in admin
-#
+# Used for the RELEASE a ENV info in admin
+# ==========================================================
 django-settings-export
 
 # ==========================================================
@@ -48,3 +48,8 @@ django-settings-export
 # as well as 3rd party (social) account authentication.
 # ==========================================================
 django-allauth
+
+# ==========================================================
+# A Django app providing database and form fields for pytz timezone objects.
+# ==========================================================
+django-timezone-field

@@ -19,6 +19,7 @@ print("App running in %s" %(BASE_DIR,))
 # Application definition
 
 INSTALLED_APPS = [
+    "ahauser",
     'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,6 +35,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'project',
     'journal',
+    'timezone_field', # for user settings
 ]
 
 INSTALLED_APPS += [
@@ -196,7 +198,7 @@ SITE_ID = 1
 # it will redirect the user to the home page.
 
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 SOCIALACCOUNT_QUERY_EMAIL = True
 LOGIN_REDIRECT_URL = "/"
 
@@ -207,3 +209,11 @@ SOCIALACCOUNT_PROVIDERS = \
         }
     }
 
+# as of http://django-allauth.readthedocs.org/en/latest/advanced.html#custom-user-models
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_UNIQUE_EMAIL = True # Enforce uniqueness of e-mail addresses.
+
+# Custom user model
+AUTH_USER_MODEL = 'ahauser.AhaUser'
