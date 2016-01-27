@@ -10,6 +10,8 @@ from django.utils.translation import ugettext as _
 from timezone_field import TimeZoneField
 from django.utils import timezone as tz
 
+import uuid
+
 class AhaUserManager(BaseUserManager):
     def create_user(self, email, gender, password=None):
         """
@@ -63,6 +65,7 @@ class AhaUser(AbstractBaseUser):
     how_to_call = models.CharField(max_length=101, blank=True, verbose_name=_("How to call you"))
 
     ################### Settings
+
     timezone = TimeZoneField(default="Europe/Prague", verbose_name=_("Timezone"))
 
     remind_hour = models.IntegerField(choices=[(i, i) for i in range(1,25)], default=20, verbose_name=_("reminder hour"))
@@ -74,6 +77,19 @@ class AhaUser(AbstractBaseUser):
     remind_fr = models.BooleanField(_("Pá"), default=True)
     remind_sa = models.BooleanField(_("So"), default=True)
     remind_su = models.BooleanField(_("Ne"), default=True)
+
+
+    # Warning! migrations of unique fields must be adjusted:
+    # http://django.readthedocs.org/en/latest/howto/writing-migrations.html
+    email_key = models.UUIDField(
+            default=uuid.uuid4, editable=True,
+            unique=True,
+            db_index=True,
+    )
+
+    @property
+    def email_post(self):
+        return str(self.email_key)+"-MEgVa@muj.ahabook.cz"
 
     ################## System
 

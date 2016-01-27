@@ -63,7 +63,7 @@ class UserAdmin(BaseUserAdmin):
     list_display = ('email', 'gender', 'is_admin', 'is_active', 'date_joined')
     list_filter = ('is_admin', 'is_active')
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'date_joined', 'updated')}),
+        (None, {'fields': ('email', 'email_post', 'password', 'date_joined', 'updated')}),
         ('Personal info', {'fields': ('how_to_call', 'gender',)}),
         ('Settings', {'fields': (
                         ('remind_hour', 'timezone',),
@@ -80,7 +80,7 @@ class UserAdmin(BaseUserAdmin):
             'fields': ('email', 'gender', 'password1', 'password2')}
         ),
     )
-    readonly_fields = ('updated', 'date_joined')
+    readonly_fields = ('updated', 'date_joined', 'email_post')
     search_fields = ('email',)
     ordering = ('email',)
     filter_horizontal = ()
