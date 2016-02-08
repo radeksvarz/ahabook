@@ -33,6 +33,12 @@ Other:
     - ID servicces (Identity providers) - eg Okta, OneLogin, Pony Identity
     - check Sentry enterprise SSO
 
+ Database related
+    - unaccent search - https://www.odoo.com/forum/help-1/question/how-to-search-without-accented-characters-1229
+    - enabled encryption on the DB level
+
+    All setup via initial project migrations.
+
  FIXED: admin
   - bootstrapped - check boxes in horizontal
     - overriden fieldset template - see https://github.com/django-admin-bootstrapped/django-admin-bootstrapped/issues/191
